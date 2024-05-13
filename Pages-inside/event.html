@@ -215,10 +215,11 @@
         function displaySavedEvents(events) {
             const cells = scheduleTable.querySelectorAll('td');
             events.forEach((event, index) => {
-                const cell = cells[index];
-                cell.textContent = event;
-                cell.style.backgroundColor = '#28a745'; // Set background color to green
-                cell.style.color = '#fff'; // Set text color to white
+                const inputCell = cells[index].querySelector('input[type="text"]');
+                if (inputCell.value === event) {
+                    cells[index].style.backgroundColor = '#28a745'; // Set background color to green
+                    cells[index].style.color = '#fff'; // Set text color to white
+                }
             });
         }
 
